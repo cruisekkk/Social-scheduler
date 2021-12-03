@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
 import './homepage.less';
-import '../../Component/Guidance.js'
+import Guidance from '../../Component/Guidance/Guidance'
+import Register from '../../Component/Register/Register'
+import SignIn from '../../Component/SignIn/SignIn'
+
+
 function Homepage() {
-  const [status, setStatus] = useState(0);
+  const [status, setStatus] = useState("signin");
     return (
         <>
-            <div id="homepage"></div>
-            <div id="icon">
-                123 <div id="logo">456</div>{' '}
+            <div id="homepage">
+                <img id="icon"
+                    src="http://localhost:8000/1.png"
+                />        
+                <div id="titleBundle">
+                    <p id="title">SCHEDULE TOGETHER,</p>  
+                    <p id="title">BECOME BETTER</p>
+                </div>
+                <div id="entry">
+                    { status === null ? < Guidance/> : null}
+                    { status === "signin" ? <SignIn/> : null}
+                    { status === "register" ? <Register/>: null}
+                </div>
             </div>
-            <p>App demo</p>
-            {/* { status === null ? < Guidance/> : null} */}
-            {/* { status === "signin" ? <Signin/> : null}
-            { status === "register" ? <Register/>: null} */}
+            
+            
         </>
     );
 }
