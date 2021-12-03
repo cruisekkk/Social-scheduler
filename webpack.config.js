@@ -22,10 +22,10 @@ module.exports = {
                 exclude: path.resolve(__dirname, 'node_modules'),
                 use: ['style-loader', 'css-loader', 'less-loader'],
             },
-            // {
-            //   test: /\.css$/,
-            //   use: ['style-loader','css-loader']
-            // },
+            {
+              test: /\.css$/,
+              use: ['style-loader','css-loader']
+            },
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ['file-loader'],
