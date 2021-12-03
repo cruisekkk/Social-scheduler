@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './homepage.less';
 import '../../Component/Guidance.js'
 function Homepage() {
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState(0);
     return (
         <>
             <div id="homepage"></div>
