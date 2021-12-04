@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Homepage from './Pages/Homepage/Homepage.js';
-import Applicaiton from './Pages/Application/Application.js';
+import Application from './Pages/Application/Application.js';
 import 'antd/dist/antd.css'
 function App() {
     const [isLogedIn, setIsLogedIn] = useState(false);
