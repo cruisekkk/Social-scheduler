@@ -6,10 +6,10 @@ function App() {
     const [isLogedIn, setIsLogedIn] = useState(false);
 
     const renderPage = () => {
-      if (isLogedIn) {
+      if (!isLogedIn) {
         return (
         <div id="app">
-          <Homepage/>
+          <Homepage setIsLogedIn={setIsLogedIn}/>
         </div>)
       } else {
         return (
