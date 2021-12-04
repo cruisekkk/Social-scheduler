@@ -55,6 +55,7 @@ module.exports = {
                 changeOrigin: true,
             },
         },
+        historyApiFallback: true,
         port: 8000,
     },
     mode: 'development',
