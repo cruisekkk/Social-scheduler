@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import MySchedule from "./Pages/MySchedule/MySchedule.js"
 const routes = [
     {
         path: '/',
         // exact: true,
-        main: <h2>My schedule</h2>,
+        main: <MySchedule/>,
     },
     {
         path: 'history',
