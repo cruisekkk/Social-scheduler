@@ -1,21 +1,31 @@
 import React from 'react';
-import { Input, Button, Checkbox } from 'antd';
+import { Input, Button} from 'antd';
 
-function SignIn() {
+
+function SignIn({setIsLogedIn, setStatus}) {
+    
     return (
         <>
             <p>email/username</p>
-            <Input size="small" placeholder="large size" />
+            <Input size="small" placeholder="please input email or username" />
             <br />
-            <br />
-            <br />
-            <Input.Password />
             <br />
             <br />
             <p>password</p>
-            <Button type="primary" htmlType="submit">
+            <Input.Password size="small" placeholder="please input password" />
+            <br />
+            <br />
+            <Button type="primary" onClick={(e) => 
+                {
+                    console.log(e)
+                    setIsLogedIn(true)
+                }
+             } >
                 Submit
             </Button>
+            <br/>
+            <br/>
+            <a onClick={() => setStatus("register") } href="#" style={{color : 'yellow'}} >create account</a>
         </>
     );
 }

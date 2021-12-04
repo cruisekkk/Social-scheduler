@@ -3,9 +3,10 @@ import './homepage.less';
 import Guidance from '../../Component/Guidance/Guidance'
 import Register from '../../Component/Register/Register'
 import SignIn from '../../Component/SignIn/SignIn'
+import { Input, Button} from 'antd';
 
 
-function Homepage() {
+function Homepage({setIsLogedIn}) {
   const [status, setStatus] = useState("signin");
     return (
         <>
@@ -19,13 +20,17 @@ function Homepage() {
                 </div>
                 <div id="entry">
                     { status === null ? < Guidance/> : null}
-                    { status === "signin" ? <SignIn/> : null}
-                    { status === "register" ? <Register/>: null}
+                    { status === "signin" ? <SignIn setIsLogedIn={setIsLogedIn} setStatus={setStatus}/> : null}
+                    { status === "register" ? <Register setIsLogedIn={setIsLogedIn}/>: null}
+                    
                 </div>
+                
             </div>
             
             
+            
         </>
+    
     );
 }
 
