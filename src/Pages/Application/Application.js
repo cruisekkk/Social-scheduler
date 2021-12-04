@@ -3,26 +3,33 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import { browserHistory } from 'react-router';
 import routes from '../../router';
 function Application() {
+    const [selectedMenu, setSelectMenu] = useState('My schedule');
+    const getSidebar = menuName => {
+        return (
+            <div style={{ height: '100', color: '#758095', fontSize: '20px', padding: '5px' }}>
+                {menuName}
+            </div>
+        );
+    };
     return (
         <BrowserRouter>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', width: '1792px', height: '1120px' }}>
                 <div
                     style={{
-                        width: '25%',
+                        width: '18%',
+                        backgroundColor: '#EEEEEE',
                     }}
                 >
-                    <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    <ul style={{ padding: 0 }}>
+                        <p style={{ fontSize: '24px', color: 'gray', textAlign: 'center' }}>Menu</p>
                         <li>
-                            <Link to="/">My schedule</Link>
+                            <Link to="/">{getSidebar('My schedule')}</Link>
                         </li>
                         <li>
-                            <Link to="history">History</Link>
+                            <Link to="history">{getSidebar('History')}</Link>
                         </li>
                         <li>
-                            <Link to="events">Events</Link>
-                        </li>
-                        <li>
-                            <Link to="contact">Contacts</Link>
+                            <Link to="events">{getSidebar('Events')}</Link>
                         </li>
                     </ul>
                 </div>
