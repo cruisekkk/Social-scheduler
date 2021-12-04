@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import { browserHistory } from 'react-router';
 import routes from '../../router';
+import Activity from '../../Component/Activity/Activity'
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
     const getSidebar = menuName => {
@@ -39,6 +40,7 @@ function Application() {
                             <Route key={index} path={route.path} element={route.main} />
                         ))}
                     </Routes>
+                    <Activity/>
                 </div>
             </div>
         </BrowserRouter>
