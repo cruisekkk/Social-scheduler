@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import routes from '../../router';
 import AppCalendar from '../../Component/AppCalendar/AppCalendar';
 import ShareBox from '../../Component/ShareBox/ShareBox';
+import { Modal, Timeline } from 'antd';
+import ModifyRecord from '../../Component/ModifyRecord/ModifyRecord';
 
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
@@ -51,6 +53,7 @@ function Application() {
                 >
                     <AppCalendar/>
                     <ShareBox/>
+                    {/* <ModifyRecord/> */}
                 </div>
             </div>
         </BrowserRouter>
