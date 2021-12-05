@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Events from './Pages/Events/Events';
 import MySchedule from "./Pages/MySchedule/MySchedule.js"
+import History from './Pages/History/History';
 
 const routes = [
     {
@@ -10,7 +11,8 @@ const routes = [
     },
     {
         path: 'history',
-        main: <h2>History</h2>,
+        //main: <h2>History</h2>,
+        main: <History/>,
     },
     {
         path: 'events',
