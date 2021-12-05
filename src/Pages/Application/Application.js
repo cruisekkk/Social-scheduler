@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import { browserHistory } from 'react-router';
 import routes from '../../router';
+import AppCalendar from '../../Component/AppCalendar/AppCalendar';
+import ShareBox from '../../Component/ShareBox/ShareBox';
+
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
     const getSidebar = menuName => {
@@ -39,6 +42,15 @@ function Application() {
                             <Route key={index} path={route.path} element={route.main} />
                         ))}
                     </Routes>
+                </div>
+                <div
+                    style={{
+                        width: '28%',
+                        backgroundColor: '#2A2E41',
+                    }}
+                >
+                    <AppCalendar/>
+                    <ShareBox/>
                 </div>
             </div>
         </BrowserRouter>
