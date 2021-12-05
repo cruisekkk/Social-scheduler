@@ -11,7 +11,7 @@ function Activity() {
                     <div className="activity-text">
                         <p>Meet Sophia in Airport</p>
                         <p>participants: Sophia, her boyfriend, her dog</p>
-                        <p>place: Google Map link</p>
+                        {/* <p>place: Google/ Map link</p> */}
                     </div>
                     <div className="activity-timereduce"></div>
                     <div className="activity-timeextend"></div>

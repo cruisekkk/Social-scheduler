@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
+
+import MyScheduleCell from '../../Component/MyScheduleCell/MyScheduleCell';
 import './mySchedule.less';
 
 function MySchedule() {
     const [schedules, setSchedules] = useState([]);
+    const updateLength = (length, index) => {
+        let new_schedules = [...schedules];
+        new_schedules[index].timeLength = length;
+        setSchedules(new_schedules);
+    };
+    const cleanSchedule = index => {
+        let new_schedules = [...schedules];
+        new_schedules.splice(index, 1);
+        setSchedules(new_schedules);
+    };
     return (
-        <div id="scheduler_panel">
-            {schedules.map(item => (
-                <ScheduleCell status={item.status} />
+        <div id="scheduler_panel" style={{}}>
+            {schedules.map((item, index) => (
+                <MyScheduleCell
+                    key={item.index + item.content}
+                    content={item.content}
+                    timeLength={item.timeLength}
+                    index={index}
+                    updateLength={updateLength}
+                    cleanSchedule={cleanSchedule}
+                />
             ))}
             <Button
                 style={{
@@ -19,7 +38,7 @@ function MySchedule() {
                     borderWidth: '1px',
                 }}
                 onClick={() => {
-                    // setSchedules([...schedules, {}])
+                    setSchedules([...schedules, { content: null, timeLength: 1 }]);
                 }}
             >
                 <p style={{ fontWeight: '500', color: '#FFFFFF', marginTop: '2px' }}>New Event</p>
