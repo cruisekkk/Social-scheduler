@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Events from './Pages/Events/Events';
-import Activity from './Component/Activity/Activity';
+import MySchedule from "./Pages/MySchedule/MySchedule.js"
+
 const routes = [
     {
         path: '/',
         // exact: true,
-        //main: <h2>My schedule</h2>,
-        main:<Activity/>,
+        main: <MySchedule/>,
     },
     {
         path: 'history',
