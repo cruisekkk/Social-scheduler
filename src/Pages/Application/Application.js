@@ -10,6 +10,7 @@ import Headbar from '../../Component/Headbar/Headbar';
 
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
+    const [showModify,setShowModify] =useState(false);
     const getSidebar = menuName => {
         return (
             <div style={{ height: '100', color: '#758095', fontSize: '20px', padding: '5px' }}>
@@ -28,13 +29,13 @@ function Application() {
                 >
                     <ul style={{ padding: 0 }}>
                         <p style={{ fontSize: '24px', color: 'gray', textAlign: 'center' }}>Menu</p>
-                        <li>
+                        <li onClick={()=>setShowModify(false)}>
                             <Link to="/">{getSidebar('My schedule')}</Link>
                         </li>
-                        <li>
+                        <li onClick={()=>setShowModify(true)}>
                             <Link to="history">{getSidebar('History')}</Link>
                         </li>
-                        <li>
+                        <li onClick={()=>setShowModify(false)}>
                             <Link to="events">{getSidebar('Events')}</Link>
                         </li>
                     </ul>
@@ -54,8 +55,7 @@ function Application() {
                     }}
                 >
                     <AppCalendar/>
-                    <ShareBox/>
-                    {/* <ModifyRecord/> */}
+                    { showModify? <ModifyRecord/> : <ShareBox/>}
                 </div>
             </div>
         </BrowserRouter>

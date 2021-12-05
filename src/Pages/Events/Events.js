@@ -3,7 +3,7 @@ import "./event.less";
 function Events() {
     return(
            <>
-                <h2>To-do List</h2>
+                <p id="eventTitle">To-do List</p>
                 <div id="eventsContainer">
                     <div id="event1" className="event"></div>
                     <div id="event2" className="event"></div>
