@@ -6,6 +6,7 @@ import AppCalendar from '../../Component/AppCalendar/AppCalendar';
 import ShareBox from '../../Component/ShareBox/ShareBox';
 import { Modal, Timeline } from 'antd';
 import ModifyRecord from '../../Component/ModifyRecord/ModifyRecord';
+import Headbar from '../../Component/Headbar/Headbar';
 
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
@@ -39,6 +40,7 @@ function Application() {
                     </ul>
                 </div>
                 <div id="mainApp" style={{ flex: 1 }}>
+                    <Headbar/>
                     <Routes>
                         {routes.map((route, index) => (
                             <Route key={index} path={route.path} element={route.main} />
