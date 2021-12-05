@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Events from './Component/Events/Events';
+import Events from './Pages/Events/Events';
 import Activity from './Component/Activity/Activity';
 const routes = [
     {
