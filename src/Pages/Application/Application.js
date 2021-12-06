@@ -68,6 +68,7 @@ function Application() {
                     </ul>
                 </div>
                 <div id="mainApp" style={{ flex: 1, width: '54%' }}>
+                    <Headbar/>
                     <Routes>
                         {routes.map((route, index) => (
                             <Route key={index} path={route.path} element={route.main} />
