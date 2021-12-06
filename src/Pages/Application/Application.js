@@ -11,16 +11,43 @@ import Headbar from '../../Component/Headbar/Headbar';
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
     const [showModify,setShowModify] =useState(false);
+    const [note, setNote] = useState(false);
     const getSidebar = menuName => {
         return (
-            <div style={{ height: '100', color: '#758095', fontSize: '20px', padding: '5px' }}>
+            <div
+                style={{
+                    height: '100',
+                    color: menuName === selectedMenu ? '#1A2D54' : '#758095',
+                    fontSize: '20px',
+                    padding: '5px',
+                    fontWeight: menuName === selectedMenu ? 'bold' : 'normal',
+                }}
+                onClick={() => {
+                    if (menuName === 'History') {
+                        setNote(false);
+                    }
+                    setSelectMenu(menuName);
+                }}
+            >
                 {menuName}
+                {note && menuName === 'History' ? (
+                    <div
+                        style={{
+                            width: '0px',
+                            height: '0px',
+                            border: '3px red solid',
+                            display: 'inline-block',
+                            marginLeft: '5px',
+                            borderRadius: '50%',
+                        }}
+                    ></div>
+                ) : null}
             </div>
         );
     };
     return (
         <BrowserRouter>
-            <div style={{ display: 'flex', width: '1792px', height: '1120px' }}>
+            <div style={{ display: 'flex', width: '100vw', height: '100vh', overflow: 'hidden' }}>
                 <div
                     style={{
                         width: '18%',
@@ -40,8 +67,7 @@ function Application() {
                         </li>
                     </ul>
                 </div>
-                <div id="mainApp" style={{ flex: 1 }}>
-                    <Headbar/>
+                <div id="mainApp" style={{ flex: 1, width: '54%' }}>
                     <Routes>
                         {routes.map((route, index) => (
                             <Route key={index} path={route.path} element={route.main} />
@@ -55,7 +81,7 @@ function Application() {
                     }}
                 >
                     <AppCalendar/>
-                    { showModify? <ModifyRecord/> : <ShareBox/>}
+                    { showModify? <ModifyRecord/> : <ShareBox setNote={setNote}/>}
                 </div>
             </div>
         </BrowserRouter>
