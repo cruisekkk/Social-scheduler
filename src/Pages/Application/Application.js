@@ -11,14 +11,23 @@ function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
     const getSidebar = menuName => {
         return (
-            <div style={{ height: '100', color: '#758095', fontSize: '20px', padding: '5px' }}>
+            <div
+                style={{
+                    height: '100',
+                    color: menuName === selectedMenu ? '#1A2D54' : '#758095',
+                    fontSize: '20px',
+                    padding: '5px',
+                    fontWeight: menuName === selectedMenu ? 'bold' : 'normal',
+                }}
+                onClick={() => setSelectMenu(menuName)}
+            >
                 {menuName}
             </div>
         );
     };
     return (
         <BrowserRouter>
-            <div style={{ display: 'flex', width: '1792px', height: '1120px' }}>
+            <div style={{ display: 'flex', width: '100vw', height: '100vh', overflow: 'hidden' }}>
                 <div
                     style={{
                         width: '18%',
@@ -38,7 +47,7 @@ function Application() {
                         </li>
                     </ul>
                 </div>
-                <div id="mainApp" style={{ flex: 1 }}>
+                <div id="mainApp" style={{ flex: 1, width: '54%' }}>
                     <Routes>
                         {routes.map((route, index) => (
                             <Route key={index} path={route.path} element={route.main} />
@@ -51,8 +60,8 @@ function Application() {
                         backgroundColor: '#2A2E41',
                     }}
                 >
-                    <AppCalendar/>
-                    <ShareBox/>
+                    <AppCalendar />
+                    <ShareBox />
                     {/* <ModifyRecord/> */}
                 </div>
             </div>
