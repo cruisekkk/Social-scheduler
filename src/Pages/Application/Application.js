@@ -9,6 +9,7 @@ import ModifyRecord from '../../Component/ModifyRecord/ModifyRecord';
 
 function Application() {
     const [selectedMenu, setSelectMenu] = useState('My schedule');
+    const [note, setNote] = useState(false);
     const getSidebar = menuName => {
         return (
             <div
@@ -19,9 +20,26 @@ function Application() {
                     padding: '5px',
                     fontWeight: menuName === selectedMenu ? 'bold' : 'normal',
                 }}
-                onClick={() => setSelectMenu(menuName)}
+                onClick={() => {
+                    if (menuName === 'History') {
+                        setNote(false);
+                    }
+                    setSelectMenu(menuName);
+                }}
             >
                 {menuName}
+                {note && menuName === 'History' ? (
+                    <div
+                        style={{
+                            width: '0px',
+                            height: '0px',
+                            border: '3px red solid',
+                            display: 'inline-block',
+                            marginLeft: '5px',
+                            borderRadius: '50%',
+                        }}
+                    ></div>
+                ) : null}
             </div>
         );
     };
@@ -61,7 +79,7 @@ function Application() {
                     }}
                 >
                     <AppCalendar />
-                    <ShareBox />
+                    <ShareBox setNote={setNote}/>
                     {/* <ModifyRecord/> */}
                 </div>
             </div>

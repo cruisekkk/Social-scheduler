@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, message, Input } from 'antd';
 
-function ShareBox() {
+function ShareBox({ setNote }) {
     const [isShareVisible, setIsShareVisible] = useState(false);
 
     const showModal = () => {
@@ -9,6 +9,7 @@ function ShareBox() {
     };
 
     const handleOk = () => {
+        setNote(true);
         message.success('successfully shared');
         setIsShareVisible(false);
     };
