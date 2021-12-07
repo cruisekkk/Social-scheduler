@@ -82,6 +82,7 @@ function Application() {
                     }}
                 >
                     <AppCalendar/>
+                    {/* <ShareBox setNote={setNote}/> */}
                     { showModify? <ModifyRecord/> : <ShareBox setNote={setNote}/>}
                 </div>
             </div>
